@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Grade Calculator</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="max-w-md mx-auto mt-10 bg-white p-8
+                rounded-xl shadow-lg">
+
+        <!-- Heading -->
+        <h1 class="text-3xl font-bold text-center text-blue-700">
+            Student Grade Calculator
+        </h1>
+
+        <p class="text-center text-gray-500 mt-2">
+            Enter marks out of 100
+        </p>
+
+
+        <!-- Marks Input -->
+        <div class="mt-6">
+
+            <label class="font-semibold">
+                Mathematics
+            </label>
+
+            <input
+                type="number"
+                id="math"
+                min="0"
+                max="100"
+                placeholder="Enter marks"
+                class="w-full border p-3 rounded-lg mt-2">
+
+        </div>
+
+
+        <div class="mt-4">
+
+            <label class="font-semibold">
+                OOP
+            </label>
+
+            <input
+                type="number"
+                id="java"
+                min="0"
+                max="100"
+                placeholder="Enter marks"
+                class="w-full border p-3 rounded-lg mt-2">
+
+        </div>
+
+
+        <div class="mt-4">
+
+            <label class="font-semibold">
+                Data Structures and Algorithm
+            </label>
+
+            <input
+                type="number"
+                id="dsa"
+                min="0"
+                max="100"
+                placeholder="Enter marks"
+                class="w-full border p-3 rounded-lg mt-2">
+
+        </div>
+
+
+        <div class="mt-4">
+
+            <label class="font-semibold">
+                Python
+            </label>
+
+            <input
+                type="number"
+                id="python"
+                min="0"
+                max="100"
+                placeholder="Enter marks"
+                class="w-full border p-3 rounded-lg mt-2">
+
+        </div>
+
+
+        <div class="mt-4">
+
+            <label class="font-semibold">
+                Modern Web Development
+            </label>
+
+            <input
+                type="number"
+                id="web"
+                min="0"
+                max="100"
+                placeholder="Enter marks"
+                class="w-full border p-3 rounded-lg mt-2">
+
+        </div>
+
+
+        <!-- Calculate Button -->
+        <button
+            onclick="calculateGrade()"
+            class="w-full bg-blue-600 text-white
+                   py-3 rounded-lg mt-6
+                   font-bold hover:bg-blue-700">
+
+            Calculate Result
+
+        </button>
+
+
+        <!-- Result -->
+        <div id="result"
+             class="hidden mt-6 bg-blue-50
+                    border border-blue-200
+                    rounded-lg p-5">
+
+            <h2 class="text-xl font-bold text-center">
+                Result
+            </h2>
+
+            <p class="mt-3">
+                <b>Total Marks:</b>
+                <span id="total"></span> / 500
+            </p>
+
+            <p class="mt-2">
+                <b>Percentage:</b>
+                <span id="percentage"></span>%
+            </p>
+
+            <p class="mt-2">
+                <b>Grade:</b>
+                <span id="grade"></span>
+            </p>
+
+            <p class="mt-2">
+                <b>Result:</b>
+                <span id="status"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function calculateGrade() {
+
+            // Get marks
+            let math = Number(document.getElementById("math").value);
+            let java = Number(document.getElementById("java").value);
+            let dsa = Number(document.getElementById("dsa").value);
+            let python = Number(document.getElementById("python").value);
+            let web = Number(document.getElementById("web").value);
+
+
+            // Validate marks
+            if (
+                math < 0 || math > 100 ||
+                java < 0 || java > 100 ||
+                dsa < 0 || dsa > 100 ||
+                python < 0 || python > 100 ||
+                web < 0 || web > 100
+            ) {
+
+                alert("Please enter marks between 0 and 100.");
+                return;
+
+            }
+
+
+            // Calculate total
+            let total = math + java + dsa + python + web;
+
+
+            // Calculate percentage
+            let percentage = total / 5;
+
+
+            // Calculate grade
+            let grade;
+
+            if (percentage >= 90) {
+                grade = "A+";
+            }
+            else if (percentage >= 80) {
+                grade = "A";
+            }
+            else if (percentage >= 70) {
+                grade = "B";
+            }
+            else if (percentage >= 60) {
+                grade = "C";
+            }
+            else if (percentage >= 50) {
+                grade = "D";
+            }
+            else {
+                grade = "F";
+            }
+
+
+            // Pass / Fail
+            let status;
+
+            if (percentage >= 40) {
+                status = "PASS";
+            }
+            else {
+                status = "FAIL";
+            }
+
+
+            // Display result
+            document.getElementById("total").innerText = total;
+
+            document.getElementById("percentage").innerText =
+                percentage.toFixed(2);
+
+            document.getElementById("grade").innerText = grade;
+
+            document.getElementById("status").innerText = status;
+
+
+            // Show result box
+            document.getElementById("result")
+                .classList.remove("hidden");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
+PRACTICAL 6
