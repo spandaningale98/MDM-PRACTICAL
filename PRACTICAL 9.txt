@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal To-Do List</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white text-center py-8 shadow-lg">
+
+        <h1 class="text-4xl font-bold">
+            My To-Do List
+        </h1>
+
+        <p class="mt-2 text-indigo-100">
+            Organize your tasks and stay productive
+        </p>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="max-w-3xl mx-auto px-4 py-8">
+
+        <!-- Add Task Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+                Add New Task
+            </h2>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What do you need to do?"
+                    class="flex-1 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+                <button
+                    id="addBtn"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl transition">
+
+                    + Add Task
+
+                </button>
+
+            </div>
+
+            <p id="errorMessage" class="text-red-500 text-sm mt-2"></p>
+
+        </div>
+
+
+        <!-- Statistics -->
+        <div class="grid grid-cols-3 gap-4 mt-6">
+
+            <!-- Total -->
+            <div class="bg-white rounded-xl shadow p-4 text-center">
+
+                <p class="text-gray-500 text-sm">
+                    Total
+                </p>
+
+                <p id="totalTasks" class="text-2xl font-bold text-indigo-600">
+                    0
+                </p>
+
+            </div>
+
+
+            <!-- Completed -->
+            <div class="bg-white rounded-xl shadow p-4 text-center">
+
+                <p class="text-gray-500 text-sm">
+                    Completed
+                </p>
+
+                <p id="completedTasks" class="text-2xl font-bold text-green-600">
+                    0
+                </p>
+
+            </div>
+
+
+            <!-- Pending -->
+            <div class="bg-white rounded-xl shadow p-4 text-center">
+
+                <p class="text-gray-500 text-sm">
+                    Pending
+                </p>
+
+                <p id="pendingTasks" class="text-2xl font-bold text-orange-500">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Task List -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mt-6">
+
+            <div class="flex justify-between items-center mb-4">
+
+                <h2 class="text-xl font-bold text-gray-800">
+                    My Tasks
+                </h2>
+
+                <button
+                    id="clearBtn"
+                    class="text-red-500 hover:text-red-700 text-sm font-semibold">
+                    Clear All
+                </button>
+
+            </div>
+
+
+            <!-- Empty Message -->
+            <div id="emptyMessage"
+                 class="text-center py-10 text-gray-400">
+
+                <div class="text-5xl mb-3">
+                    📝
+                </div>
+
+                <p class="font-medium">
+                    No tasks yet
+                </p>
+
+                <p class="text-sm">
+                    Add your first task above!
+                </p>
+
+            </div>
+
+
+            <!-- Tasks -->
+            <ul id="taskList" class="space-y-3">
+            </ul>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 text-sm py-6">
+
+        Student To-Do List • JavaScript Practical
+
+    </footer>
+
+
+    <script>
+
+        // Get HTML elements
+        const taskInput = document.getElementById("taskInput");
+        const addBtn = document.getElementById("addBtn");
+        const taskList = document.getElementById("taskList");
+        const errorMessage = document.getElementById("errorMessage");
+
+        const totalTasks = document.getElementById("totalTasks");
+        const completedTasks = document.getElementById("completedTasks");
+        const pendingTasks = document.getElementById("pendingTasks");
+
+        const emptyMessage = document.getElementById("emptyMessage");
+        const clearBtn = document.getElementById("clearBtn");
+
+
+        // Add task when button is clicked
+        addBtn.addEventListener("click", addTask);
+
+
+        // Add task when Enter key is pressed
+        taskInput.addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                addTask();
+            }
+
+        });
+
+
+        // Add Task Function
+        function addTask() {
+
+            const taskText = taskInput.value.trim();
+
+
+            // Validation
+            if (taskText === "") {
+
+                errorMessage.textContent =
+                    "Please enter a task.";
+
+                return;
+            }
+
+
+            // Clear error
+            errorMessage.textContent = "";
+
+
+            // Create task
+            const li = document.createElement("li");
+
+            li.className =
+                "flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-gray-50 border border-gray-200 p-4 rounded-xl hover:shadow-md transition";
+
+
+            // Left section
+            const leftSection = document.createElement("div");
+
+            leftSection.className =
+                "flex items-center gap-3";
+
+
+            // Checkbox
+            const checkbox = document.createElement("input");
+
+            checkbox.type = "checkbox";
+
+            checkbox.className =
+                "w-5 h-5 accent-indigo-600 cursor-pointer";
+
+
+            // Task details
+            const details = document.createElement("div");
+
+
+            // Task name
+            const taskName = document.createElement("p");
+
+            taskName.textContent = taskText;
+
+            taskName.className =
+                "font-semibold text-gray-800";
+
+
+            // Time
+            const time = document.createElement("p");
+
+            time.textContent =
+                "Added just now";
+
+            time.className =
+                "text-xs text-gray-400 mt-1";
+
+
+            // Add task details
+            details.appendChild(taskName);
+            details.appendChild(time);
+
+
+            // Add checkbox and details
+            leftSection.appendChild(checkbox);
+            leftSection.appendChild(details);
+
+
+            // Right buttons
+            const buttons = document.createElement("div");
+
+            buttons.className =
+                "flex gap-2";
+
+
+            // Done button
+            const doneBtn = document.createElement("button");
+
+            doneBtn.textContent = "Done";
+
+            doneBtn.className =
+                "bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium";
+
+
+            // Delete button
+            const deleteBtn = document.createElement("button");
+
+            deleteBtn.textContent = "Delete";
+
+            deleteBtn.className =
+                "bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium";
+
+
+            // Complete task using checkbox
+            checkbox.addEventListener("change", function() {
+
+                taskName.classList.toggle(
+                    "line-through",
+                    checkbox.checked
+                );
+
+                taskName.classList.toggle(
+                    "text-gray-400",
+                    checkbox.checked
+                );
+
+                updateStats();
+
+            });
+
+
+            // Done button
+            doneBtn.addEventListener("click", function() {
+
+                checkbox.checked = !checkbox.checked;
+
+                taskName.classList.toggle(
+                    "line-through",
+                    checkbox.checked
+                );
+
+                taskName.classList.toggle(
+                    "text-gray-400",
+                    checkbox.checked
+                );
+
+                updateStats();
+
+            });
+
+
+            // Delete button
+            deleteBtn.addEventListener("click", function() {
+
+                li.remove();
+
+                updateStats();
+
+            });
+
+
+            // Add buttons
+            buttons.appendChild(doneBtn);
+            buttons.appendChild(deleteBtn);
+
+
+            // Add everything to list
+            li.appendChild(leftSection);
+            li.appendChild(buttons);
+
+            taskList.appendChild(li);
+
+
+            // Clear input
+            taskInput.value = "";
+
+            taskInput.focus();
+
+
+            // Update statistics
+            updateStats();
+
+        }
+
+
+        // Update statistics
+        function updateStats() {
+
+            const tasks =
+                taskList.querySelectorAll("li");
+
+            const total = tasks.length;
+
+            let completed = 0;
+
+
+            tasks.forEach(function(task) {
+
+                const checkbox =
+                    task.querySelector("input");
+
+                if (checkbox.checked) {
+                    completed++;
+                }
+
+            });
+
+
+            const pending = total - completed;
+
+
+            // Display statistics
+            totalTasks.textContent = total;
+
+            completedTasks.textContent = completed;
+
+            pendingTasks.textContent = pending;
+
+
+            // Show / hide empty message
+            if (total === 0) {
+
+                emptyMessage.style.display = "block";
+
+            } else {
+
+                emptyMessage.style.display = "none";
+
+            }
+
+        }
+
+
+        // Clear all tasks
+        clearBtn.addEventListener("click", function() {
+
+            if (taskList.children.length === 0) {
+                return;
+            }
+
+
+            const confirmDelete =
+                confirm("Are you sure you want to delete all tasks?");
+
+
+            if (confirmDelete) {
+
+                taskList.innerHTML = "";
+
+                updateStats();
+
+            }
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+PRACTICAL 9
