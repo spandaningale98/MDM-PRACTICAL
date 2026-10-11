@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-5">
+        <div class="max-w-6xl mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center">
+                Product Showcase
+            </h1>
+            <p class="text-center mt-2">
+                Explore our latest products
+            </p>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <section class="max-w-6xl mx-auto px-4 py-10">
+
+        <h2 class="text-2xl font-bold text-center mb-8">
+            Featured Products
+        </h2>
+
+        <!-- Flexbox Container -->
+        <div class="flex flex-col md:flex-row flex-wrap justify-center items-stretch gap-6">
+
+            <!-- Product 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden
+                        w-full md:w-[30%]">
+
+                <img src="https://image01-in.oneplus.net/media/202607/28/33c2ea43f6be217cc40077d4f52eb2ae.png?x-amz-process=image/format,webp/quality,Q_80
+                     alt="Smartphone"
+                     class="w-full h-52 object-cover">
+
+                <div class="p-5">
+                    <h3 class="text-xl font-bold mb-2">
+                        Smart Phone
+                    </h3>
+
+                    <p class="text-gray-600 mb-4">
+                        A stylish smartphone with a powerful processor
+                        and long-lasting battery.
+                        Also features a high-resolution camera for stunning photos.
+                        High-quality display and sleek design make it a must-have gadget for tech enthusiasts.
+                    </p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-blue-600">
+                            ₹19,999
+                        </span>
+
+                        <button class="bg-blue-600 text-white px-4 py-2
+                                       rounded-md hover:bg-blue-700">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden
+                        w-full md:w-[30%]">
+
+                <img src="https://www.shutterstock.com/image-photo/pink-headphones-pads-on-white-260nw-2772187987.jpg"
+                     alt="Headphones"
+                     class="w-full h-52 object-cover">
+
+                <div class="p-5">
+                    <h3 class="text-xl font-bold mb-2">
+                        Wireless Headphones
+                    </h3>
+
+                    <p class="text-gray-600 mb-4">
+                        Enjoy high-quality sound with wireless
+                        connectivity and comfortable ear cushions.
+                        smooth and immersive audio experience for music lovers.
+                    </p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-blue-600">
+                            ₹2,499
+                        </span>
+
+                        <button class="bg-blue-600 text-white px-4 py-2
+                                       rounded-md hover:bg-blue-700">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden
+                        w-full md:w-[30%]">
+
+                <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTO3iZHZ9I6OLp9KMSpHITqkCaXVBvo3NsbXFmYqJ17cVp-mPfjsmLokNo-43o5rB0tDFOxdns1IykRmd0p2Pz1V-RHIfxHrXZosAj6hb_EaFi608j2qrtdtYcN1nIZgLeBWFgj4WQ&usqp=CAc"
+                     alt="Smart Watch"
+                     class="w-full h-52 object-cover">
+
+                <div class="p-5">
+                    <h3 class="text-xl font-bold mb-2">
+                        Smart Watch
+                    </h3>
+
+                    <p class="text-gray-600 mb-4">
+                        Track your fitness, monitor activities and
+                        stay connected throughout the day.
+                        With a vibrant display and long-lasting battery, it's the perfect companion for your active lifestyle.
+                    </p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-blue-600">
+                            ₹3,999
+                        </span>
+
+                        <button class="bg-blue-600 text-white px-4 py-2
+                                       rounded-md hover:bg-blue-700">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>© 2026 Product Showcase. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+PRACTICAL 4
