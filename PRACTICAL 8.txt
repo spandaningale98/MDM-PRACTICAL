@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Student Registration</h2>
+
+    <form id="registrationForm">
+
+        <label>Student Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label>Email</label>
+        <input type="text" id="email" placeholder="Enter your email">
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+
+        <label>Mobile Number</label>
+        <input type="text" id="mobile" placeholder="Enter mobile number">
+
+        <button type="submit">Register</button>
+
+        <p id="message"></p>
+    </form>
+</div>
+
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value;
+        let mobile = document.getElementById("mobile").value.trim();
+        let message = document.getElementById("message");
+
+        // Mandatory field validation
+        if (name === "" || email === "" || password === "" || mobile === "") {
+            message.innerHTML = "Please fill all mandatory fields.";
+            message.style.color = "red";
+            return;
+        }
+
+        // Email format validation
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+            message.innerHTML = "Please enter a valid email address.";
+            message.style.color = "red";
+            return;
+        }
+
+        // Password length validation
+        if (password.length < 8) {
+            message.innerHTML = "Password must contain at least 8 characters.";
+            message.style.color = "red";
+            return;
+        }
+
+        // Mobile number validation
+        let mobilePattern = /^[0-9]{10}$/;
+
+        if (!mobilePattern.test(mobile)) {
+            message.innerHTML = "Mobile number must contain exactly 10 digits.";
+            message.style.color = "red";
+            return;
+        }
+
+        // Successful submission
+        message.innerHTML = "Registration successful!";
+        message.style.color = "green";
+
+        document.getElementById("registrationForm").reset();
+    });
+</script>
+
+</body>
+</html>
+PRACTICAL 8

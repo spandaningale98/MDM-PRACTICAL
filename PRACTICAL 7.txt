@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive FAQ</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .faq {
+            background: white;
+            margin: 12px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px gray;
+            overflow: hidden;
+        }
+
+        .question {
+            padding: 18px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .question:hover {
+            background: #e8f0fe;
+        }
+
+        .answer {
+            display: none;
+            padding: 0 18px 18px;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Frequently Asked Questions</h1>
+
+    <!-- 1 -->
+    <div class="faq">
+        <div class="question">
+            What is HTML?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            HTML stands for HyperText Markup Language. It creates the structure of a webpage.
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="faq">
+        <div class="question">
+            What is CSS?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            CSS stands for Cascading Style Sheets. It is used to style webpages.
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="faq">
+        <div class="question">
+            What is JavaScript?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            JavaScript is a programming language used to make webpages interactive.
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="faq">
+        <div class="question">
+            What is DOM?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            DOM stands for Document Object Model. It represents the HTML document as objects.
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="faq">
+        <div class="question">
+            What is an Event Listener?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            An event listener waits for an event such as click, mouseover, or keypress.
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="faq">
+        <div class="question">
+            What is a variable?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            A variable is used to store data values in a program.
+        </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="faq">
+        <div class="question">
+            What is a function?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            A function is a reusable block of code that performs a specific task.
+        </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="faq">
+        <div class="question">
+            What is an array?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            An array is a collection of multiple values stored in a single variable.
+        </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="faq">
+        <div class="question">
+            What is a loop?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            A loop repeatedly executes a block of code until a condition is satisfied.
+        </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="faq">
+        <div class="question">
+            What is an if-else statement?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            If-else is a conditional statement used to execute code based on a condition.
+        </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="faq">
+        <div class="question">
+            What is getElementById()?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            getElementById() selects an HTML element using its unique ID.
+        </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="faq">
+        <div class="question">
+            What is querySelector()?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            querySelector() selects the first HTML element matching a CSS selector.
+        </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="faq">
+        <div class="question">
+            What is querySelectorAll()?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            querySelectorAll() selects all elements matching a CSS selector.
+        </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="faq">
+        <div class="question">
+            What is an object in JavaScript?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            An object stores data in the form of properties and values.
+        </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="faq">
+        <div class="question">
+            What is an operator?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            An operator is a symbol used to perform operations on values.
+        </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="faq">
+        <div class="question">
+            What is an event in JavaScript?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            An event is an action such as clicking a button, pressing a key, or moving the mouse.
+        </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="faq">
+        <div class="question">
+            What is innerHTML?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            innerHTML is used to get or change the HTML content of an element.
+        </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="faq">
+        <div class="question">
+            What is textContent?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            textContent is used to get or change the text inside an HTML element.
+        </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="faq">
+        <div class="question">
+            What is nextElementSibling?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            nextElementSibling returns the next HTML element of the selected element.
+        </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="faq">
+        <div class="question">
+            Why is JavaScript used in websites?
+            <span>+</span>
+        </div>
+        <div class="answer">
+            JavaScript is used to add dynamic behavior and interactive features to websites.
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+    // Select all questions
+    const questions = document.querySelectorAll(".question");
+
+    // Add click event to every question
+    questions.forEach(function(question) {
+
+        question.addEventListener("click", function() {
+
+            // Get corresponding answer
+            const answer = question.nextElementSibling;
+
+            // Get + or - symbol
+            const icon = question.querySelector("span");
+
+            // Show or hide answer
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                icon.textContent = "+";
+            }
+            else {
+                answer.style.display = "block";
+                icon.textContent = "-";
+            }
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
+
+
+
+PRACTICAL 7
